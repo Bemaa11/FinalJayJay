@@ -31,12 +31,13 @@ jobs:
 
       # Setup Gradle Wrapper
       - name: Setup Gradlew
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+        run: chmod +x gradlew
 
-      - name: Run test
-        run: ./gradlew clean test
+      - name: Run API test
+        run: ./gradlew apiTest
+
+      - name: Run WEB test
+        run: ./gradlew webTest
 
        # Archive Test Result
       - name: Archive Test Result
@@ -46,11 +47,11 @@ jobs:
           name: Cucumber Report
           path: reports
 
-      # Deploy to Github Pages
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v4.0.0
-        with:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN}}
-          PUBLISH_DIR: reports
+      # # Deploy to Github Pages
+      # - name: Deploy report to Github Pages
+      #   if: always()
+      #   uses: peaceiris/actions-gh-pages@v4.0.0
+      #   with:
+      #     PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+      #     PUBLISH_DIR: reports
 
