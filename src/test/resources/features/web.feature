@@ -43,6 +43,18 @@ Feature: Test Automation Web
       And user will see icon name of user
       And click detail item "Samsung galaxy s6"
       And click  button add to cart
+      And user success added the product "Product added"
+      And user click cart button
+      And user click place order button
+      And user set the name "random"
+      And user set the country "random"
+      And user set the city "random"
+      And user set the credit card "random"
+      And user set the month "random"
+      And user set the year "random"
+      And user click purchase button
+      And user gets notification of purchase details
+
 
       @web
       Scenario: Test detail categories
